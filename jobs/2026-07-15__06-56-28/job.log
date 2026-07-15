@@ -1,0 +1,23 @@
+Skipping image OS validation for hb__b79a6e83135fd05ac68314234baaebbe: docker inspect returned 1
+Collecting main service artifacts
+Failed to download artifact '/app/out.json' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "/Users/himanshu/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 330, in _download_artifact
+    await source_env.service_download_file(
+    ...<3 lines>...
+    )
+  File "/Users/himanshu/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 1025, in service_download_file
+    await self.download_file(source_path, target_path)
+  File "/Users/himanshu/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 1010, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/Users/himanshu/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 185, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/Users/himanshu/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 631, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__bwkfyrf__env --project-directory /Users/himanshu/Desktop/Handshake/log-report/environment -f /private/var/folders/tq/c5zl40s51x3gwg08nvwl0ffh0000gn/T/tmp6ahti0ge/log-report__BwKFyrF__env-docker-compose-resources.json -f /Users/himanshu/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /private/var/folders/tq/c5zl40s51x3gwg08nvwl0ffh0000gn/T/tmp81nhw_dv/docker-compose-mounts.json cp main:/app/out.json jobs/2026-07-15__06-56-28/log-report__BwKFyrF/artifacts/app/out.json. Return code: 1. Stdout:  log-report__bwkfyrf__env-main-1 Copying log-report__bwkfyrf__env-main-1:/app/out.json to jobs/2026-07-15__06-56-28/log-report__BwKFyrF/artifacts/app/out.json
+Error response from daemon: Could not find the file /app/out.json in container a3e052d16231732695657b964641d56f0327c376c73502a66a16421f861a3f75
+. Stderr: None. 
